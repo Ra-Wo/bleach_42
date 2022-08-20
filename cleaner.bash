@@ -2,13 +2,13 @@
 #Author Rachid Oudouch
 #42login : roudouch
 
-Storage=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
-if [ "$Storage" == "0BB" ];
+StorageBefore=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
+if [ "$StorageBefore" == "0BB" ];
 then
-    Storage="0B"
+    StorageBefore="0B"
 fi
 
-printf "\n\033[32m [ storage :  \033[0;31mbefore= $Storage  \033[32m=> \033[0m"
+printf "\n\033[32mBleach is clean your compter, pls wait...\033[0m\n"
 
 clean42Caches() {
     /bin/rm -rf ~/Library/*.42* &>/dev/null
@@ -69,4 +69,5 @@ then
     Storage="0B"
 fi
 
+printf "\n\033[32m[ storage :  \033[0;31mbefore= $StorageBefore  \033[32m=> \033[0m"
 printf "\033[32mafter= $Storage  ]\033[0m\n\n"
