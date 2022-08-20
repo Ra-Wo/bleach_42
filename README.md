@@ -3,7 +3,7 @@ For 42Network schools only, script to free up some space :)
 
 ##How to use ?
 ```bash
-  bash install.bash
+bash install.bash
 ```
 
 then you must reopen your terminal :)
