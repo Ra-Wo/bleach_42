@@ -8,7 +8,7 @@ then
     StorageBefore="0B"
 fi
 
-printf "\n\033[32mBleach is clean your compter, pls wait...\033[0m\n"
+printf "\n\033[32mBleach is cleaning your computer, pls wait...\033[0m\n"
 
 clean42Caches() {
     /bin/rm -rf ~/Library/*.42* &>/dev/null
