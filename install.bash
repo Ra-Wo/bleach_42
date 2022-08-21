@@ -7,15 +7,17 @@ startInstall() {
     path=$(pwd)
     bleachPath="$(pwd)/cleaner.bash"
     alreadyInstall=$(grep "####10108bleach10108####" < ~/.zshrc)
-    
-    if [  ${#alreadyInstall} == 0 ]
+    if [ ${#alreadyInstall} == 0 ]
     then
-        echo -e "\n####10108bleach10108####" >> ~/.zshrc
-        echo "/bin/bash $bleachPath" >> ~/.zshrc
+        echo -e "####10108bleach10108####" >> ~/.zshrc
         echo "alias storage=\"bash $path/check_space.bash\"" >> ~/.zshrc
         echo "alias bleach=\"bash $path/help.bash\"" >> ~/.zshrc
-        echo "alias unBleach=\"bash $path/unbleach.bash\"" >> ~/.zshrc
+        echo "alias unbleach=\"bash $path/unbleach.bash\"" >> ~/.zshrc
         echo "alias bclean=\"bash $bleachPath\"" >> ~/.zshrc
+        if [ "$1" == '1' ]
+        then
+            echo "/bin/bash $bleachPath" >> ~/.zshrc
+        fi
         echo -e "####10108bleach10108####" >> ~/.zshrc
         printf "\033[32mInstalled ✅ \033[0m\n"
         printf "Please reopen terminal\n"
@@ -23,6 +25,7 @@ startInstall() {
         printf "\033[32mAlready installed!✅ \033[0m\n\n"
     fi
 }
+
 
 echo -e "\033[33m
             ╔╗ ┬  ┌─┐┌─┐┌─┐┬ ┬ 
@@ -32,15 +35,14 @@ echo -e "\033[33m
 \033[0m
 "
 
-printf "\nBefore you continue you must have installed Zsh first!\n\n"
-printf "\033[0;33mInstall? [y/n]: \033[0m"
-read -p "" zsh
+printf "\033[0;36m[1] \033[0;33mFull install (install and run whenever you open terminal)\n\033[0;36m[2] \033[0;33mJust install (run bleach as a command) \033[0m\n\n \033[0;36m─➤ "
+read -p "" var
 
-if [ "$zsh" == 'y' ] || [ "$zsh" == 'yes' ]
+if [ "$var" == '1' ]
+then
+    startInstall '1';
+fi
+if [ "$var" == '2' ]
 then
     startInstall;
-fi
-if [ "$zsh" == 'n' ] || [ "$zsh" == 'no' ]
-then
-    printf "\n\n\033[0;31mPlease install zsh then try to install Bleach!\n\n"
 fi
