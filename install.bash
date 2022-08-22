@@ -9,7 +9,7 @@ startInstall() {
     alreadyInstall=$(grep "####10108bleach10108####" < ~/.zshrc)
     if [ ${#alreadyInstall} == 0 ]
     then
-        echo -e "####10108bleach10108####" >> ~/.zshrc
+        echo -e "\n####10108bleach10108####" >> ~/.zshrc
         echo "alias storage=\"bash $path/check_space.bash\"" >> ~/.zshrc
         echo "alias bleach=\"bash $path/help.bash\"" >> ~/.zshrc
         echo "alias unbleach=\"bash $path/unbleach.bash\"" >> ~/.zshrc

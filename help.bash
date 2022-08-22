@@ -36,7 +36,7 @@ then
         if [  ${#alreadyInstall} == 0 ]
         then
             $(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true')
-            echo -e "####10108bleach-Dark-mode10108####" >> ~/.zshrc
+            echo -e "\n####10108bleach-Dark-mode10108####" >> ~/.zshrc
             echo -e "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to true'" >> ~/.zshrc
             echo -e "####10108bleach-Dark-mode10108####" >> ~/.zshrc
             printf "\n\033[32mDark-mode activated ✅ \033[0m\n\n"
@@ -44,6 +44,22 @@ then
             printf "\n\033[0;31mDark-mode is already activated!\033[0m\n\n"
         fi
     fi
+
+    if [ "$2" == "code" ]
+    then
+        alreadyInstall=$(grep "####10108bleach-code10108####" < ~/.zshrc)
+        if [  ${#alreadyInstall} == 0 ]
+        then
+            echo -e "\n####10108bleach-code10108####" >> ~/.zshrc
+            echo -e "alias code=\"/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/./code\"" >> ~/.zshrc
+            echo -e "####10108bleach-code10108####" >> ~/.zshrc
+            printf "\n\033[32mcode command activated ✅ \033[0m"
+            printf "\033[0;31m: you need to reopen your terminal to apply the new changes.\033[0m\n\n"
+        else
+            printf "\n\033[0;31mcode command is already activated!\033[0m\n\n"
+        fi
+    fi
+
 elif [ "$1" == "deactivate" ]
 then
     if [ "$2" == "dark-mode" ]
@@ -53,9 +69,21 @@ then
         then
             printf "\n\033[0;31mDark-mode is not activated!\033[0m\n\n"
         else
-            deleteService "####10108bleach-Dark-mode10108####"
             $(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false')
+            deleteService "####10108bleach-Dark-mode10108####"
             printf "\n\033[32mDark-mode deactivated ✅ \033[0m\n\n"
+        fi
+    fi
+    if [ "$2" == "code" ]
+    then
+        alreadyInstall=$(grep "####10108bleach-code10108####" < ~/.zshrc)
+        if [  ${#alreadyInstall} == 0 ]
+        then
+            printf "\n\033[0;31mcode command is not activated!\033[0m\n\n"
+        else
+            deleteService "####10108bleach-code10108####"
+            printf "\n\033[32mcode command deactivated ✅ \033[0m"
+            printf "\033[0;31m: you need to reopen your terminal to apply the new changes.\033[0m\n\n"
         fi
     fi
 else
@@ -72,6 +100,8 @@ else
     printf "|- To Uninstall Bleach: \033[4;36munbleach\n\n\033[0m"
     printf "|- To active dark-mode: \033[4;36mbleach active dark-mode\n\n\033[0m"
     printf "|- To deactivate dark-mode: \033[4;36mbleach deactivate dark-mode\n\n\033[0m"
+    printf "|- To active \"code\" command (Vscode): \033[4;36mbleach active code\n\n\033[0m"
+    printf "|- To deactivate \"code\" command: \033[4;36mbleach deactivate code\n\n\033[0m"
     printf "|- for help: \033[4;36mbleach\n\n\033[0m"
 
 fi
