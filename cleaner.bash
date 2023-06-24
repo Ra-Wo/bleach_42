@@ -17,9 +17,9 @@ clean42Caches() {
     /bin/rm -rf ~/.cocoapods.42_cache_bak* &>/dev/null
 }
 
-cleanTrash() {
-    /bin/rm -rf ~/.Trash/* &>/dev/null
-}
+# cleanTrash() {
+#     /bin/rm -rf ~/.Trash/* &>/dev/null
+# }
 
 cleanGeneralCacheFiles() {
     /bin/rm -rf ~/Library/Caches/* &>/dev/null
@@ -55,7 +55,7 @@ cleanPoolThings() {
 
 
 clean42Caches;
-cleanTrash;
+# cleanTrash;
 cleanGeneralCacheFiles;
 cleanAppsCaches;
 cleanDS_StoreFiles;

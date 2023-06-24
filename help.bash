@@ -96,6 +96,7 @@ else
     printf "\n\033[0;33mBleach will always run when you open the terminal, you don't need to do anything.\033[0m"
     printf "\n\n\033[0;35m------- Command line you can run -------\033[0m\n\n"
     printf "|- To clean your computer: \033[4;36mbclean\n\n\033[0m"
+    printf "|- To clean all the applications data in your computer: \033[4;36mbcleanfull \033[0m be careful with this command.\n\n"
     printf "|- To see your free space: \033[4;36mstorage\n\n\033[0m"
     printf "|- To Uninstall Bleach: \033[4;36munbleach\n\n\033[0m"
     printf "|- To active dark-mode: \033[4;36mbleach active dark-mode\n\n\033[0m"
