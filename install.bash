@@ -13,6 +13,7 @@ startInstall() {
         echo "alias storage=\"bash $path/check_space.bash\"" >> ~/.zshrc
         echo "alias bleach=\"bash $path/help.bash\"" >> ~/.zshrc
         echo "alias unbleach=\"bash $path/unbleach.bash\"" >> ~/.zshrc
+        echo "alias bdocker=\"bash $path/init_docker.bash\"" >> ~/.zshrc
         echo "alias bclean=\"bash $bleachPath\"" >> ~/.zshrc
         echo "alias bcleanfull=\"bash $path/cleanAllAppsData.bash\"" >> ~/.zshrc
         
