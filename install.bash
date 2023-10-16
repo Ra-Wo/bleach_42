@@ -9,7 +9,7 @@ startInstall() {
     alreadyInstall=$(grep "####10108bleach10108####" < ~/.zshrc)
     if [ ${#alreadyInstall} == 0 ]
     then
-        echo -e "\n####10108bleach10108####" >> ~/.zshrc
+        echo "\n\n\n####10108bleach10108####" >> ~/.zshrc
         echo "alias storage=\"bash $path/check_space.bash\"" >> ~/.zshrc
         echo "alias bleach=\"bash $path/help.bash\"" >> ~/.zshrc
         echo "alias unbleach=\"bash $path/unbleach.bash\"" >> ~/.zshrc
@@ -21,7 +21,7 @@ startInstall() {
         then
             echo "/bin/bash $bleachPath" >> ~/.zshrc
         fi
-        echo -e "####10108bleach10108####" >> ~/.zshrc
+        echo "####10108bleach10108####" >> ~/.zshrc
         printf "\033[32mInstalled ✅ \033[0m\n"
         printf "\n\n\033[0;31mPlease reopen terminal\033[0m\n\n"
     else
