@@ -14,3 +14,5 @@ for more info about how to use bleach
 bleach
 ```
 ![info](https://raw.githubusercontent.com/Ra-Wo/bleach_42/master/screenshots/info.png)
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-sh.svg)](https://forthebadge.com)
